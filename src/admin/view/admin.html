@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+    />
+    <link rel="stylesheet" href="./css/modal.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./../../index.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="bg-black text-white fixed w-full z-10 shadow mb-5">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+          <a class="flex items-center text-white me-5" href="#">
+            <i class="fa-lg fa-solid fa-robot me-3"></i>Cyber Phone
+          </a>
+          <button
+            class="lg:hidden text-white"
+            type="button"
+            aria-label="Toggle navigation"
+          >
+            <span><i class="fas fa-bars"></i></span>
+          </button>
+          <div class="hidden lg:flex flex-grow items-center" id="navbarColor01">
+            <ul class="flex space-x-8 nav1">
+              <li class="nav-item text-center mx-5">
+                <a
+                  class="nav-link active"
+                  href="../../index.html"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <div>
+                    <i class="fas fa-home fa-xl mb-1"></i>
+                  </div>
+                  Home
+                </a>
+              </li>
+              <li class="nav-item text-center">
+                <a
+                  class="nav-link active"
+                  href="../../customer/view/store.html"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <div>
+                    <i class="fa-solid fa-xl fa-store"></i>
+                  </div>
+                  Store
+                </a>
+              </li>
+            </ul>
+            <ul class="flex space-x-8 nav2">
+              <li class="nav-item text-center">
+                <a
+                  class="nav-link js-toggle-cart active"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <div>
+                    <i class="fa-solid fa-xl fa-shopping-cart"></i>
+                    <span
+                      class="badge rounded-full bg-light text-dark"
+                      id="cartCount"
+                    ></span>
+                  </div>
+                  Cart
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="container mx-auto py-5 pt-20" id="content-wrap">
+      <main role="main" class="mt-5">
+        <div
+          class="flex justify-between items-center px-4 phoneBanner bg-blue-800 text-white rounded-t-lg"
+        >
+          <h3 class="font-bold">Phone Management</h3>
+          <div class="text-right">
+            <button
+              type="button"
+              class="btn btn-banner bg-teal-700 hover:bg-teal-600 text-white py-2 px-4 rounded hover:cursor-pointer"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              id="addPhoneForm"
+            >
+              <i class="fa-solid fa-circle-plus me-2"></i> Add Phone
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table
+            class="table-auto w-full text-left border-collapse"
+            id="myTable"
+          >
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="px-4 py-2 border">#</th>
+                <th class="px-4 py-2 border">Name</th>
+                <th class="px-4 py-2 border">Price</th>
+                <th class="px-4 py-2 border">Photo</th>
+                <th class="px-4 py-2 border">Description</th>
+                <th class="px-4 py-2 border">
+                  <em class="fa fa-cog"></em> Action
+                </th>
+              </tr>
+            </thead>
+            <tbody id="tablePhone"></tbody>
+          </table>
+        </div>
+
+        <div
+          class="modal fixed inset-0 items-center justify-center z-50 hidden"
+          id="exampleModal"
+        >
+          <div
+            class="modal-dialog bg-white rounded-lg shadow-lg w-full max-w-md"
+          >
+            <div class="modal-content">
+              <header
+                class="head-form mb-0 bg-blue-600 text-white p-4 rounded-t-lg"
+              >
+                <h3 id="header-title">Phone Management</h3>
+              </header>
+              <div class="modal-body">
+                <form role="form" id="formPhone">
+                  <div class="form-group mb-4">
+                    <div class="input-group flex items-center">
+                      <span class="input-group-text p-2 bg-gray-200">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="form-control w-full p-2 border rounded"
+                        placeholder="Phone name"
+                      />
+                    </div>
+                    <span
+                      class="sp-thongbao text-red-500 text-xs"
+                      id="tbname"
+                    ></span>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <div class="input-group flex items-center">
+                      <span class="input-group-text p-2 bg-gray-200">
+                        <i class="fa-regular fa-dollar-sign"></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="price"
+                        id="price"
+                        class="form-control w-full p-2 border rounded"
+                        placeholder="Price"
+                      />
+                    </div>
+                    <span
+                      class="sp-thongbao text-red-500 text-xs"
+                      id="tbprice"
+                    ></span>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <div class="input-group flex items-center">
+                      <span class="input-group-text p-2 bg-gray-200">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="screen"
+                        id="screen"
+                        class="form-control w-full p-2 border rounded"
+                        placeholder="Screen"
+                      />
+                    </div>
+                    <span
+                      class="sp-thongbao text-red-500 text-xs"
+                      id="tbscreen"
+                    ></span>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <div class="input-group flex items-center">
+                      <span class="input-group-text p-2 bg-gray-200">
+                        <i class="fa-solid fa-camera"></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="backCam"
+                        id="backCam"
+                        class="form-control w-full p-2 border rounded"
+                        placeholder="Back Camera"
+                      />
+                    </div>
+                    <span
+                      class="sp-thongbao text-red-500 text-xs"
+                      id="tbbackCam"
+                    ></span>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <div class="input-group flex items-center">
+                      <span class="input-group-text p-2 bg-gray-200">
+                        <i class="fa-solid fa-camera"></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="frontCam"
+                        id="frontCam"
+                        class="form-control w-full p-2 border rounded"
+                        placeholder="Front Camera"
+                      />
+                    </div>
+                    <span
+                      class="sp-thongbao text-red-500 text-xs"
+                      id="tbfrontCam"
+                    ></span>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <div class="input-group flex items-center">
+                      <span class="input-group-text p-2 bg-gray-200">
+                        <i class="fa-solid fa-link"></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="img"
+                        id="img"
+                        class="form-control w-full p-2 border rounded"
+                        placeholder="Image link"
+                      />
+                    </div>
+                    <span
+                      class="sp-thongbao text-red-500 text-xs"
+                      id="tbimg"
+                    ></span>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <div class="input-group flex items-center">
+                      <span class="input-group-text p-2 bg-gray-200">
+                        <i class="fa-solid fa-comment"></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="desc"
+                        id="desc"
+                        class="form-control w-full p-2 border rounded"
+                        placeholder="Description"
+                      />
+                    </div>
+                    <span
+                      class="sp-thongbao text-red-500 text-xs"
+                      id="tbdesc"
+                    ></span>
+                  </div>
+
+                  <div class="form-group mb-4">
+                    <div class="input-group flex items-center">
+                      <span class="input-group-text p-2 bg-gray-200">
+                        <i class="fa-solid fa-signature"></i>
+                      </span>
+                      <select
+                        class="form-control w-full p-2 border rounded"
+                        name="chucvu"
+                        id="type"
+                      >
+                        <option selected disabled>Select brand</option>
+                        <option>Apple</option>
+                        <option>Samsung</option>
+                      </select>
+                    </div>
+                    <span
+                      class="sp-thongbao text-red-500 text-xs"
+                      id="tbtype"
+                    ></span>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="modal-footer flex justify-end space-x-4 p-4 bg-gray-100 rounded-b-lg"
+              >
+                <button
+                  type="button"
+                  class="btn bg-blue-600 text-white px-4 py-2 rounded"
+                  id="btnAddPhone"
+                >
+                  Add Phone
+                </button>
+                <button
+                  id="btnUpdate"
+                  type="button"
+                  class="btn bg-yellow-500 text-white px-4 py-2 rounded"
+                >
+                  Update Phone
+                </button>
+                <button
+                  id="btnClose"
+                  type="button"
+                  class="btn bg-red-600 text-white px-4 py-2 rounded"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-b from-indigo-900 to-pink-900 text-white py-10"
+    >
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+          <div>
+            <h6 class="uppercase font-bold mb-4 flex items-center">
+              <i class="fa-lg fa-solid fa-robot mr-3"></i> CYBER PHONE
+            </h6>
+            <p>
+              We pride ourselves on our efficiency and hard work, but most of
+              all our ability to source you the best quality and best value
+              products and devices in the market.
+            </p>
+          </div>
+          <div>
+            <h6 class="uppercase font-bold mb-4">Brands</h6>
+            <ul>
+              <li><a href="#" class="text-reset block mb-2">iPhone</a></li>
+              <li><a href="#" class="text-reset block mb-2">Samsung</a></li>
+              <li><a href="#" class="text-reset block mb-2">Xiaomi</a></li>
+              <li><a href="#" class="text-reset block mb-2">Oppo</a></li>
+            </ul>
+          </div>
+          <div>
+            <h6 class="uppercase font-bold mb-4">Useful Links</h6>
+            <ul>
+              <li><a href="#" class="text-reset block mb-2">Pricing</a></li>
+              <li><a href="#" class="text-reset block mb-2">Settings</a></li>
+              <li><a href="#" class="text-reset block mb-2">Orders</a></li>
+              <li><a href="#" class="text-reset block mb-2">Help</a></li>
+            </ul>
+          </div>
+          <div>
+            <h6 class="uppercase font-bold mb-4">Contact</h6>
+            <ul>
+              <li class="flex items-center mb-2">
+                <i class="fas fa-home mr-3"></i> Da Nang, Thanh Khe, VN
+              </li>
+              <li class="flex items-center mb-2">
+                <i class="fas fa-envelope mr-3"></i> cyberphone@mail.com
+              </li>
+              <li class="flex items-center mb-2">
+                <i class="fas fa-phone mr-3"></i> +01 234 567 88
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-print mr-3"></i> +01 234 567 89
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-8 bg-pink-600 py-4">
+        &copy; 2022 Copyright:
+        <a class="text-reset font-bold" href="#">Cyber Phone</a>
+      </div>
+    </footer>
+
+    <script>
+      // Mở modal khi bấm nút "Add Phone"
+      document
+        .getElementById("addPhoneForm")
+        .addEventListener("click", function () {
+          document.getElementById("exampleModal").classList.remove("hidden");
+          document.getElementById("exampleModal").classList.add("flex");
+        });
+
+      // Đóng modal khi bấm nút "Close"
+      document
+        .getElementById("btnClose")
+        .addEventListener("click", function () {
+          document.getElementById("exampleModal").classList.add("hidden");
+          document.getElementById("exampleModal").classList.remove("flex");
+        });
+    </script>
+  </body>
+</html>

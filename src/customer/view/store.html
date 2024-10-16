@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber Phone</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
+    />
+    <!-- <link rel="stylesheet" href="./../../assets/css/style.css" /> -->
+    <link rel="stylesheet" href="./../../index.css" />
+  </head>
+
+  <body class="bg-gray-100">
+    <header>
+      <nav class="bg-black text-white fixed w-full z-10 shadow mb-5">
+        <div
+          class="container mx-auto px-4 flex justify-between items-center py-4"
+        >
+          <a class="flex items-center text-white text-lg font-bold" href="#">
+            <i class="fa-lg fa-solid fa-robot mr-2"></i>Cyber Phone
+          </a>
+          <button
+            class="lg:hidden text-white"
+            type="button"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div
+            class="hidden lg:flex flex-grow items-center justify-between"
+            id="navbarColor01"
+          >
+            <ul class="flex space-x-8">
+              <li>
+                <a
+                  class="text-white hover:text-gray-300"
+                  href="./../../index.html"
+                >
+                  <i class="fas fa-home fa-lg mr-1"></i> Home
+                </a>
+              </li>
+              <li>
+                <a
+                  class="text-white hover:text-gray-300"
+                  href="./../../admin/view/admin.html"
+                >
+                  <i class="fa-solid fa-user-gear fa-lg mr-1"></i> Admin Portal
+                </a>
+              </li>
+            </ul>
+            <ul class="flex space-x-8">
+              <li>
+                <a
+                  class="text-white hover:text-gray-300 relative"
+                  role="button"
+                >
+                  <i class="fa-solid fa-shopping-cart fa-lg"></i>
+                  <span
+                    class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-2"
+                    id="cartCount"
+                    >0</span
+                  >
+                  Cart
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="bg-gradient-to-b from-blue-900 to-pink-900 py-20">
+      <div class="container mx-auto flex flex-col md:flex-row items-center">
+        <div class="text-white md:w-1/2 px-5">
+          <h5 class="text-4xl font-bold mb-4">Galaxy S22｜S22+</h5>
+          <div class="flex items-center mb-5">
+            <i class="lni lni-star-filled text-yellow-400 mr-1"></i>
+            <i class="lni lni-star-filled text-yellow-400 mr-1"></i>
+            <i class="lni lni-star-filled text-yellow-400 mr-1"></i>
+            <i class="lni lni-star text-gray-400 mr-1"></i>
+            <i class="lni lni-star text-gray-400"></i>
+          </div>
+          <p class="text-gray-300 mb-4">
+            Get select Galaxy Buds2 or Buds Live on us with Galaxy S22+. Plus,
+            get up to $700 enhanced trade-in credit. For a limited time. Get
+            hands on with the S22 and S22+. See in AR >>
+          </p>
+          <h3 class="text-2xl font-semibold mb-4">1325$</h3>
+          <a
+            href="#"
+            class="bg-red-600 hover:bg-red-500 text-white font-semibold py-3 px-6 rounded-full inline-flex items-center"
+          >
+            <i class="lni lni-play-store mr-2"></i> Find out more!
+          </a>
+        </div>
+        <div class="md:w-1/2 text-center mt-8 md:mt-0">
+          <img
+            src="../view/img/s22.png"
+            alt="phone-img"
+            class="max-w-full h-auto"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="container mx-auto my-10 px-5">
+      <main role="main" class="pb-5">
+        <select class="w-1/4 p-3 border border-gray-300 rounded mb-5">
+          <option value="all">All Brands</option>
+          <option value="Apple">Apple</option>
+          <option value="Samsung">Samsung</option>
+        </select>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          id="phoneList"
+        ></div>
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-b from-indigo-900 to-pink-900 text-white py-10"
+    >
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+          <div>
+            <h6 class="uppercase font-bold mb-4 flex items-center">
+              <i class="fa-lg fa-solid fa-robot mr-3"></i> CYBER PHONE
+            </h6>
+            <p>
+              We pride ourselves on our efficiency and hard work, but most of
+              all our ability to source you the best quality and best value
+              products and devices in the market.
+            </p>
+          </div>
+          <div>
+            <h6 class="uppercase font-bold mb-4">Brands</h6>
+            <ul>
+              <li><a href="#" class="text-reset block mb-2">iPhone</a></li>
+              <li><a href="#" class="text-reset block mb-2">Samsung</a></li>
+              <li><a href="#" class="text-reset block mb-2">Xiaomi</a></li>
+              <li><a href="#" class="text-reset block mb-2">Oppo</a></li>
+            </ul>
+          </div>
+          <div>
+            <h6 class="uppercase font-bold mb-4">Useful Links</h6>
+            <ul>
+              <li><a href="#" class="text-reset block mb-2">Pricing</a></li>
+              <li><a href="#" class="text-reset block mb-2">Settings</a></li>
+              <li><a href="#" class="text-reset block mb-2">Orders</a></li>
+              <li><a href="#" class="text-reset block mb-2">Help</a></li>
+            </ul>
+          </div>
+          <div>
+            <h6 class="uppercase font-bold mb-4">Contact</h6>
+            <ul>
+              <li class="flex items-center mb-2">
+                <i class="fas fa-home mr-3"></i> Da Nang, Thanh Khe, VN
+              </li>
+              <li class="flex items-center mb-2">
+                <i class="fas fa-envelope mr-3"></i> cyberphone@mail.com
+              </li>
+              <li class="flex items-center mb-2">
+                <i class="fas fa-phone mr-3"></i> +01 234 567 88
+              </li>
+              <li class="flex items-center">
+                <i class="fas fa-print mr-3"></i> +01 234 567 89
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-8 bg-pink-600 py-4">
+        &copy; 2022 Copyright:
+        <a class="text-reset font-bold" href="#">Cyber Phone</a>
+      </div>
+    </footer>
+    <!-- Footer -->
+
+    <!-- Custom Scripts -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      // Toggle cart visibility
+      document
+        .querySelectorAll(".js-toggle-cart, .cart__overlay")
+        .forEach((element) => {
+          element.addEventListener("click", () => {
+            document.querySelector(".cart").classList.toggle("is-hidden");
+          });
+        });
+
+      // Change navbar color on scroll
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          document.querySelector("nav").classList.add("bg-black");
+        } else {
+          document.querySelector("nav").classList.remove("bg-black");
+        }
+      });
+    </script>
+    <script type="module" src="../controller/main.js"></script>
+  </body>
+</html>
