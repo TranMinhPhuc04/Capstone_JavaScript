@@ -14,10 +14,12 @@
   </head>
   <body>
     <header>
-      <nav class="bg-black text-white fixed w-full z-10 shadow mb-5">
-        <div class="container mx-auto px-4 flex justify-between items-center">
+      <nav class="bg-black text-white fixed w-full z-10 shadow">
+        <div
+          class="container mx-auto px-4 flex justify-between items-center py-2"
+        >
           <a class="flex items-center text-white me-5" href="#">
-            <i class="fa-lg fa-solid fa-robot me-3"></i>Cyber Phone
+            <i class="fa-lg fa-solid fa-robot me-3"></i>Phuc Store
           </a>
           <button
             class="lg:hidden text-white"
@@ -86,11 +88,45 @@
         <div
           class="flex justify-between items-center px-4 phoneBanner bg-blue-800 text-white rounded-t-lg"
         >
-          <h3 class="font-bold">Phone Management</h3>
-          <div class="text-right">
+          <h3 class="font-bold text-lg">Phone Management</h3>
+
+          <!-- Thanh tìm kiếm và các nút sắp xếp giá -->
+          <div class="flex items-center space-x-4 my-2">
+            <!-- Thanh tìm kiếm -->
+            <div class="relative">
+              <input
+                type="text"
+                id="searchPhone"
+                class="form-control w-[250px] p-2 border rounded text-black"
+                placeholder="Search phone by name"
+              />
+              <span class="absolute right-3 top-2 text-gray-500">
+                <i class="fa fa-search"></i>
+              </span>
+            </div>
+
+            <!-- Nút sắp xếp giá tăng dần -->
             <button
               type="button"
-              class="btn btn-banner bg-teal-700 hover:bg-teal-600 text-white py-2 px-4 rounded hover:cursor-pointer"
+              class="btn bg-amber-700 text-white py-2 px-4 rounded w-[150px]"
+              id="sortPriceAsc"
+            >
+              Giá tăng dần
+            </button>
+
+            <!-- Nút sắp xếp giá giảm dần -->
+            <button
+              type="button"
+              class="btn bg-sky-500 text-white py-2 px-4 rounded w-[150px]"
+              id="sortPriceDesc"
+            >
+              Giá giảm dần
+            </button>
+
+            <!-- Nút thêm điện thoại -->
+            <button
+              type="button"
+              class="btn bg-teal-700 hover:bg-teal-600 text-white py-2 px-4 rounded w-[150px]"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
               id="addPhoneForm"
@@ -331,7 +367,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
           <div>
             <h6 class="uppercase font-bold mb-4 flex items-center">
-              <i class="fa-lg fa-solid fa-robot mr-3"></i> CYBER PHONE
+              <i class="fa-lg fa-solid fa-robot mr-3"></i> PHUC STORE
             </h6>
             <p>
               We pride ourselves on our efficiency and hard work, but most of
@@ -361,24 +397,24 @@
             <h6 class="uppercase font-bold mb-4">Contact</h6>
             <ul>
               <li class="flex items-center mb-2">
-                <i class="fas fa-home mr-3"></i> Da Nang, Thanh Khe, VN
+                <i class="fas fa-home mr-3"></i> Sai Gon, Binh Thanh, VN
               </li>
               <li class="flex items-center mb-2">
-                <i class="fas fa-envelope mr-3"></i> cyberphone@mail.com
+                <i class="fas fa-envelope mr-3"></i> minhphuctn04@gmail.com
               </li>
               <li class="flex items-center mb-2">
-                <i class="fas fa-phone mr-3"></i> +01 234 567 88
+                <i class="fas fa-phone mr-3"></i> 0369535221
               </li>
               <li class="flex items-center">
-                <i class="fas fa-print mr-3"></i> +01 234 567 89
+                <i class="fas fa-print mr-3"></i> 0369535221
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="text-center mt-8 bg-pink-600 py-4">
-        &copy; 2022 Copyright:
-        <a class="text-reset font-bold" href="#">Cyber Phone</a>
+        &copy; 2024 Copyright:
+        <a class="text-reset font-bold" href="#">Phuc Store</a>
       </div>
     </footer>
 
@@ -399,5 +435,13 @@
           document.getElementById("exampleModal").classList.remove("flex");
         });
     </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+      integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script type="module" src="./../controller/main.js"></script>
   </body>
 </html>

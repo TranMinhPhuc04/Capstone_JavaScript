@@ -3,23 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cyber Phone</title>
+    <title>Phuc Store</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
     />
-    <!-- <link rel="stylesheet" href="./../../assets/css/style.css" /> -->
     <link rel="stylesheet" href="./../../index.css" />
   </head>
 
   <body class="bg-gray-100">
+    <!-- Navbar -->
     <header>
       <nav class="bg-black text-white fixed w-full z-10 shadow mb-5">
         <div
           class="container mx-auto px-4 flex justify-between items-center py-4"
         >
-          <a class="flex items-center text-white text-lg font-bold" href="#">
-            <i class="fa-lg fa-solid fa-robot mr-2"></i>Cyber Phone
+          <a
+            class="flex items-center text-white text-lg font-bold mr-4"
+            href="#"
+          >
+            <i class="fa-lg fa-solid fa-robot mr-2"></i>Phuc Store
           </a>
           <button
             class="lg:hidden text-white"
@@ -54,7 +57,7 @@
             <ul class="flex space-x-8">
               <li>
                 <a
-                  class="text-white hover:text-gray-300 relative"
+                  class="text-white hover:text-gray-300 relative js-toggle-cart"
                   role="button"
                 >
                   <i class="fa-solid fa-shopping-cart fa-lg"></i>
@@ -72,23 +75,16 @@
       </nav>
     </header>
 
+    <!-- Main Content -->
     <div class="bg-gradient-to-b from-blue-900 to-pink-900 py-20">
       <div class="container mx-auto flex flex-col md:flex-row items-center">
         <div class="text-white md:w-1/2 px-5">
           <h5 class="text-4xl font-bold mb-4">Galaxy S22｜S22+</h5>
-          <div class="flex items-center mb-5">
-            <i class="lni lni-star-filled text-yellow-400 mr-1"></i>
-            <i class="lni lni-star-filled text-yellow-400 mr-1"></i>
-            <i class="lni lni-star-filled text-yellow-400 mr-1"></i>
-            <i class="lni lni-star text-gray-400 mr-1"></i>
-            <i class="lni lni-star text-gray-400"></i>
-          </div>
           <p class="text-gray-300 mb-4">
             Get select Galaxy Buds2 or Buds Live on us with Galaxy S22+. Plus,
-            get up to $700 enhanced trade-in credit. For a limited time. Get
-            hands on with the S22 and S22+. See in AR >>
+            get up to $700 enhanced trade-in credit.
           </p>
-          <h3 class="text-2xl font-semibold mb-4">1325$</h3>
+          <h3 class="text-2xl font-semibold mb-4">$1325</h3>
           <a
             href="#"
             class="bg-red-600 hover:bg-red-500 text-white font-semibold py-3 px-6 rounded-full inline-flex items-center"
@@ -106,17 +102,30 @@
       </div>
     </div>
 
+    <!-- Main Content -->
     <div class="container mx-auto my-10 px-5">
       <main role="main" class="pb-5">
-        <select class="w-1/4 p-3 border border-gray-300 rounded mb-5">
+        <!-- Dropdown Filter -->
+        <!-- Dropdown Filter -->
+        <select
+          id="selectType"
+          class="w-1/4 p-3 border border-gray-300 rounded mb-5"
+        >
           <option value="all">All Brands</option>
           <option value="Apple">Apple</option>
           <option value="Samsung">Samsung</option>
         </select>
+
+        <!-- Product List -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-          id="phoneList"
-        ></div>
+          id="phoneListCustomer"
+        >
+          <!-- Dynamic content from JavaScript will be inserted here -->
+        </div>
+
+        <!-- Cart List Section -->
+        <div id="cartList" class="my-10"></div>
       </main>
     </div>
 
@@ -128,7 +137,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
           <div>
             <h6 class="uppercase font-bold mb-4 flex items-center">
-              <i class="fa-lg fa-solid fa-robot mr-3"></i> CYBER PHONE
+              <i class="fa-lg fa-solid fa-robot mr-3"></i> PHUC STORE
             </h6>
             <p>
               We pride ourselves on our efficiency and hard work, but most of
@@ -158,51 +167,93 @@
             <h6 class="uppercase font-bold mb-4">Contact</h6>
             <ul>
               <li class="flex items-center mb-2">
-                <i class="fas fa-home mr-3"></i> Da Nang, Thanh Khe, VN
+                <i class="fas fa-home mr-3"></i> Sai gon, Binh Thanh, VN
               </li>
               <li class="flex items-center mb-2">
-                <i class="fas fa-envelope mr-3"></i> cyberphone@mail.com
+                <i class="fas fa-envelope mr-3"></i> minhphuctn04@gmail.com
               </li>
               <li class="flex items-center mb-2">
-                <i class="fas fa-phone mr-3"></i> +01 234 567 88
+                <i class="fas fa-phone mr-3"></i> 0369535221
               </li>
               <li class="flex items-center">
-                <i class="fas fa-print mr-3"></i> +01 234 567 89
+                <i class="fas fa-print mr-3"></i> 0369535221
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="text-center mt-8 bg-pink-600 py-4">
-        &copy; 2022 Copyright:
-        <a class="text-reset font-bold" href="#">Cyber Phone</a>
+        &copy; 2024 Copyright:
+        <a class="text-reset font-bold" href="#">minhphuctn04</a>
       </div>
     </footer>
-    <!-- Footer -->
 
-    <!-- Custom Scripts -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Popup Cart -->
+    <div
+      id="cartPopup"
+      class="fixed inset-0 bg-black bg-opacity-50 z-20 hidden"
+    >
+      <div
+        class="bg-white rounded-lg p-6 w-11/12 max-w-lg mx-auto mt-24 relative"
+      >
+        <h2 class="text-xl font-bold mb-4">Giỏ Hàng Của Bạn</h2>
+        <div id="cartItems" class="mb-6">
+          <!-- Cart items will be rendered here dynamically -->
+        </div>
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-lg font-semibold">Tổng Cộng:</span>
+          <span id="totalPrice" class="text-xl font-bold">1325$</span>
+        </div>
+        <div class="flex justify-between">
+          <button
+            id="continueShopping"
+            class="bg-gray-500 text-white px-4 py-2 rounded"
+          >
+            Tiếp tục mua sắm
+          </button>
+          <button
+            id="clearCart"
+            class="bg-red-500 text-white px-4 py-2 rounded"
+          >
+            Xóa Giỏ Hàng
+          </button>
+          <button id="payNow" class="bg-green-500 text-white px-4 py-2 rounded">
+            Thanh Toán
+          </button>
+        </div>
+        <button
+          class="absolute top-2 right-2 text-black text-lg font-bold"
+          onclick="document.getElementById('cartPopup').classList.add('hidden')"
+        >
+          &times;
+        </button>
+      </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
-      // Toggle cart visibility
-      document
-        .querySelectorAll(".js-toggle-cart, .cart__overlay")
-        .forEach((element) => {
-          element.addEventListener("click", () => {
-            document.querySelector(".cart").classList.toggle("is-hidden");
-          });
+      document.querySelectorAll(".js-toggle-cart").forEach((element) => {
+        element.addEventListener("click", () => {
+          document.querySelector("#cartPopup").classList.toggle("hidden");
         });
+      });
 
-      // Change navbar color on scroll
       window.addEventListener("scroll", () => {
+        const navbar = document.querySelector("nav");
         if (window.scrollY > 100) {
-          document.querySelector("nav").classList.add("bg-black");
+          navbar.classList.add("bg-black");
         } else {
-          document.querySelector("nav").classList.remove("bg-black");
+          navbar.classList.remove("bg-black");
         }
       });
     </script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"
+      integrity="sha512-DdX/YwF5e41Ok+AI81HI8f5/5UsoxCVT9GKYZRIzpLxb8Twz4ZwPPX+jQMwMhNQ9b5+zDEefc+dcvQoPWGNZ3g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script type="module" src="../controller/main.js"></script>
   </body>
 </html>
