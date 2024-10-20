@@ -1,7 +1,10 @@
 import Phone from "../model/Phone.js";
 import Api from "../services/Api.js";
+import Validation from "../model/Validation.js";
 
 const api = new Api();
+const validation = new Validation();
+
 let listPhone = [];
 let currentEditingId = null;
 
@@ -88,6 +91,29 @@ const getInfoPhone = () => {
  * Thêm điện thoại mới
  */
 getEleId("btnAddPhone").onclick = () => {
+  const name = getEleId("name").value;
+  const price = getEleId("price").value;
+  const screen = getEleId("screen").value;
+  const backCam = getEleId("backCam").value;
+  const frontCam = getEleId("frontCam").value;
+  const img = getEleId("img").value;
+  const desc = getEleId("desc").value;
+  const type = getEleId("type");
+
+  // Validate the form fields
+  const isValid =
+    validation.isEmpty(name, "tbname", "Vui lòng điền tên sản phẩm") &&
+    validation.isNumber(price, "tbprice", "Giá phải là số và lớn hơn 0") &&
+    validation.isEmpty(screen, "tbscreen", "Vui lòng điền Sreen") &&
+    validation.isEmpty(backCam, "tbbackCam", "Vui lòng điền BackCamera") &&
+    validation.isEmpty(frontCam, "tbfrontCam", "Vui lòng điền FontCamera") &&
+    validation.isEmpty(img, "tbimg", "Vui lòng điền link hình ảnh") &&
+    validation.isEmpty(desc, "tbdesc", "Vui lòng nhập mô tả sản phẩm") &&
+    validation.isOptionSelected(type, "tbtype", "Vui lòng chọn loại sản phẩm");
+
+  if (!isValid) {
+    return;
+  }
   const phone = getInfoPhone();
   api
     .addPhone(phone)
