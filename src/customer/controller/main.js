@@ -13,7 +13,7 @@ const renderPhoneForCustomer = (phoneList) => {
   let contentHTML = "";
   phoneList.forEach((phone) => {
     contentHTML += `
-            <div class="phone-card max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transition-transform transform hover:scale-105 hover:shadow-2xl">
+            <div class="phone-card mr-5 mb-5 max-w-sm rounded-lg overflow-hidden shadow-lg bg-white transition-transform transform hover:scale-105 hover:shadow-2xl">
               <img src="${phone.img}" alt="Phone image" class="w-full h-[400px] object-cover">
               
               <div class="px-6 py-4">

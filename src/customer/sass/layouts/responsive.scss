@@ -1,0 +1,199 @@
+/* Variables */
+:root {
+  --primary-color: #e0f7fa;
+  --secondary-color: #ff6f61;
+  --navbar-height: 60px;
+}
+
+/* Base Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: var(--primary-color);
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Navbar */
+nav {
+  height: var(--navbar-height);
+  background-color: black;
+  color: white;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li a:hover {
+  color: rgba(224, 247, 250, 0.8);
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    display: none;
+  }
+
+  nav ul.active {
+    display: block;
+  }
+}
+
+/* Product Cards */
+.phone-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.phone-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.phone-card img {
+  height: 300px;
+  object-fit: cover;
+}
+
+.phone-card .phone-info {
+  padding: 16px;
+  text-align: center;
+}
+
+.phone-card .phone-info h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.phone-card .phone-info p {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.phone-card .phone-info .price {
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .phone-card img {
+    height: 250px;
+  }
+
+  .phone-card .phone-info {
+    padding: 8px;
+  }
+
+  .phone-card .phone-info h4 {
+    font-size: 1.2rem;
+  }
+
+  .phone-card .phone-info p {
+    font-size: 0.9rem;
+  }
+
+  .phone-card .phone-info .price {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .phone-card img {
+    height: 200px;
+  }
+
+  .phone-card .phone-info {
+    padding: 4px;
+  }
+
+  .phone-card .phone-info h4 {
+    font-size: 1rem;
+  }
+
+  .phone-card .phone-info p {
+    font-size: 0.8rem;
+  }
+
+  .phone-card .phone-info .price {
+    font-size: 0.9rem;
+  }
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(to bottom, #1a1a1a, #333);
+  color: white;
+  padding: 20px;
+}
+
+footer .footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer .footer-container .footer-col {
+  flex: 1 1 200px;
+  margin: 20px 0;
+}
+
+footer .footer-container .footer-col h6 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+footer .footer-container .footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer-container .footer-col ul li {
+  margin-bottom: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  footer .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Responsive Grid */
+#phoneListCustomer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  #phoneListCustomer {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #phoneListCustomer {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}

@@ -1,0 +1,138 @@
+// Base styles for header and main content
+header {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  nav {
+    height: 80px;
+    background-color: black;
+    color: white;
+  }
+
+  // Hidden nav items for smaller screens
+  .nav1,
+  .nav2 {
+    display: none;
+  }
+
+  // Toggle button for navigation on smaller screens
+  button[aria-label="Toggle navigation"] {
+    display: block;
+    font-size: 1.5rem;
+  }
+}
+
+// iPhone SE (Small screens)
+@media (max-width: 375px) {
+  .nav1,
+  .nav2 {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  }
+
+  #searchPhone {
+    width: 160px;
+  }
+
+  #sortPriceAsc,
+  #sortPriceDesc,
+  #addPhoneForm {
+    width: 100px;
+    font-size: 0.8rem;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  #cartCount {
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  .phoneBanner h3 {
+    font-size: 1rem;
+  }
+}
+
+// iPhone 14 Pro Max (Medium screens)
+@media (min-width: 390px) and (max-width: 430px) {
+  .nav1,
+  .nav2 {
+    display: flex;
+  }
+
+  .phoneBanner {
+    padding: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  #searchPhone {
+    width: 200px;
+  }
+
+  #sortPriceAsc,
+  #sortPriceDesc,
+  #addPhoneForm {
+    width: 120px;
+    font-size: 0.9rem;
+  }
+}
+
+// iPad (Medium-large screens)
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .nav1,
+  .nav2 {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  #searchPhone {
+    width: 220px;
+  }
+
+  #sortPriceAsc,
+  #sortPriceDesc,
+  #addPhoneForm {
+    width: 140px;
+  }
+
+  #cartCount {
+    position: static;
+    margin-left: 10px;
+  }
+}
+
+// Desktop & iPad Pro (Large screens)
+@media (min-width: 1024px) {
+  .nav1,
+  .nav2 {
+    display: flex;
+    gap: 3rem;
+  }
+
+  #searchPhone {
+    width: 250px;
+  }
+
+  .phoneBanner h3 {
+    font-size: 1.5rem;
+  }
+
+  #sortPriceAsc,
+  #sortPriceDesc,
+  #addPhoneForm {
+    width: 160px;
+  }
+}
